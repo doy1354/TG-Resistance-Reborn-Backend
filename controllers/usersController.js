@@ -3,7 +3,7 @@ const user = require('../models/user');
 // Get user by tgId
 const getUserAndTotalSingedCount = async (req, res) => {
   const tgId = req.params.tgId;
-
+  console.log("----------tgID from frontend", tgId)
   try {
     // Find the user by tgId
     const userData = await user.findOne({ tgId });
@@ -28,7 +28,7 @@ const getUserAndTotalSingedCount = async (req, res) => {
 // Update user sign status
 const updateUserSign = async (req, res) => {
   const id = req.params.tgId;
-
+  console.log("----------tgID from frontend", id)
   try {
     const result = await user.findOneAndUpdate(
       { tgId: id },
