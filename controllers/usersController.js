@@ -18,7 +18,7 @@ const getUserAndTotalSingedCount = async (req, res) => {
     // Return both user signed status and total signed users count
     return res.status(200).json({
       is_signed_by_user: userData.signed, // User's signed status
-      totalSignedUsers: signedUsersCount, // Total count of signed users
+      signatures_count: signedUsersCount, // Total count of signed users
     });
   } catch (err) {
     return res.status(400).json({ error: err.message });
