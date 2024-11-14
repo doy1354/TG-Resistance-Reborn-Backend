@@ -37,8 +37,13 @@ const updateUserSign = async (req, res) => {
     );
 
     if (result) {
+      // Count the number of signed users
+      const signedUsersCount = await user.countDocuments({ signed: true });
+
+      // Return both user signed status and total signed users count
       return res.status(200).json({
-        message: "success",
+        is_signed_by_user: true, // User's signed status
+        signatures_count: signedUsersCount, // Total count of signed users
       });
     } else {
       return res.status(404).json({
